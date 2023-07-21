@@ -8,6 +8,24 @@
 
 Requires clang for compilation, and Python, numpy, and torch for benchmarking. Requires an x64 CPU with the FMA featureset.
 
+## Sample Output (Ryzen 7700X)
+
+    Input tensor: 4.718592 MB, output tensor: 603.979776 MB.
+    Preallocating 55.705600 MB for temp storage.
+    Batch size 4 with 512 channels, 512 kernels, image size 24x24
+    Winograd theoretical complexity: 4.979687 GFLOPs.
+    Calling winograd 16 times...
+
+    We're achieving 115.497243 GFLOP/S, 43.115206 ms per iteration.
+
+    =========================================================================================
+    PyTorch verification: Loading tensors from file... 
+    Transposing tensors... 
+    Running conv2d...
+    PyTorch conv2d: 85.94 GFLOP/S, 57.94 ms
+    MATCH. All Winograd outputs are close to Torch's conv2d.
+
+
 ## Acknowledgements
 
 The matrix multiplication functions in helpers.h were adapted from [tinygrad.](https://github.com/tinygrad/tinygrad)
